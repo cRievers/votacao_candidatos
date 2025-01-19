@@ -1,8 +1,6 @@
 class VotingView {
     constructor() {
         this.candidateList = document.getElementById("candidateList");
-        this.addVoteButtons = [];
-        this.removeVoteButtons = [];
         this.form = document.getElementById("formulario");
         this.butao = document.getElementById("butao");
     }

@@ -3,14 +3,7 @@ class VotingController {
         this.model = model;
         this.view = view;
 
-        this.view.butao.addEventListener("click", (e) => {
-            const nome = this.view.form.textContent;
-            if(nome === ""){
-                this.model.addCandidate(nome);
-                this.view.form.textContent = "";
-            }
-        });
-
+        
         this.view.candidateList.addEventListener("click", (e) => {
             const index = e.target.dataset.index;
             if (e.target.textContent === "Votar") {
@@ -22,6 +15,16 @@ class VotingController {
             }
             this.updateView();
         });
+
+        this.view.butao.addEventListener("click", () => {
+            const candidato = {name: this.view.form.value, votes: 0};
+            if(candidato.name != ""){
+                this.model.addCandidate(candidato);
+                this.view.form.value = "";
+            }
+            this.updateView();
+        });
+
         this.updateView();
     }
 

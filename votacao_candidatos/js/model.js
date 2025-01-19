@@ -7,9 +7,8 @@ class VotingModel {
         ];
     }
 
-    addCandidate(name){
-        console.log("adicionando "+name);
-        this.candidates.push({name: name, votes: 0});
+    addCandidate(candidato){
+        this.candidates.push(candidato);
     }
 
     addVote(index) {
@@ -17,7 +16,9 @@ class VotingModel {
     }
 
     removeVote(index){
-        this.candidates[index].votes--;
+        if(this.candidates[index].votes > 0){
+            this.candidates[index].votes--;
+        }
     }
 
     removeCandidate(index) {
